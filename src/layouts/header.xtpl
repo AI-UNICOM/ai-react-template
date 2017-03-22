@@ -1,0 +1,66 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>{{title||'欢迎使用ai-unicom-cli'}}</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" /> 
+<meta name="renderer" content="webkit" />
+<script type="text/javascript" src="{{DOM.js.jquery}}"></script>
+{{#each(DOM.commons)}}
+    {{#if ( name === 'js' )}}
+        <script type="text/javascript" src="{{value}}"></script>
+    {{/if}}
+    {{#if ( name === 'css' )}}
+        <link type="text/css" rel="stylesheet" href="{{value}}">
+    {{/if}}
+{{/each}}
+<!--[if lt IE 10]>
+    <script src="{{DOM.js.html5shiv}}"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+    <script src="{{DOM.js.respond}}"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+    <script type="text/javascript">
+    if(!Function.prototype.bind){
+        Function.prototype.bind = function(){   
+            var fn = this, 
+            args = [].slice.call(arguments), 
+            object = args.shift();   
+            return function(){   
+                return fn.apply(object,args.concat([].slice.call(arguments)));   
+            };   
+        };   
+    }
+    if (!Array.prototype.filter){
+        Array.prototype.filter = function(fun /*, thisp*/){
+        var len = this.length;
+            if (typeof fun != "function")
+                throw new TypeError(); 
+                var res = new Array();
+                var thisp = arguments[1];
+                for (var i = 0; i < len; i++){
+                    if (i in this){
+                        var val = this[i]; // in case fun mutates this
+                        if (fun.call(thisp, val, i, this))
+                        res.push(val);
+                    }
+                } 
+            return res;
+        };
+    }
+
+    //重写console
+    var Consoles = ['log', 'info', 'warn', 'error', 'debug'];
+    var JsonToString=function(str){
+    return typeof str === "string" ? str : JSON.stringify(str);
+    }
+    if(!window.console){
+        window.console={};
+        for(var i=0;i<Consoles.length;i++){
+            console[Consoles[i]]=function(){
+                var args = [].slice.call(arguments, 0),content='';
+                alert(unescape(JsonToString(args).replace(/\u/g, "%u")));
+            }
+        }
+    }
+    </script>
+<![endif]-->

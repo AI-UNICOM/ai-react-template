@@ -1,0 +1,10 @@
+<!doctype html>
+<html>
+    <head>
+        {{include ("./header.xtpl") }}
+        {{{block ("header")}}}
+    </head>
+    <body>
+        {{{block ("body")}}}
+    </body>
+</html>
