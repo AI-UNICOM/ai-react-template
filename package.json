@@ -1,5 +1,5 @@
 {
-  "name": "multipage-template",
+  "name": "ai-unicom-cli",
   "version": "1.0.0",
   "description": "亚信联通事业部前端自动化构建框架",
   "main": "index.js",
@@ -8,9 +8,15 @@
     "lint": "eslint **/*.js",
     "lint-html": "eslint **/*.js -f html -o ./reports/lint-results.html",
     "lint-fix": "eslint --fix **/*.js",
-    "dev": "webpack  --progress --colors  --config ./webpack.config.js",
-    "dist": "webpack --progress --colors --config ./webpack.dist.js",
-    "start": "webpack-dev-server --config ./webpack.config.js --open --hot"
+    "dev": "./node_modules/.bin/webpack  --progress --colors  --config ./webpack.dev.js",
+    "dist": "npm run clean-build && ./node_modules/.bin/webpack --progress --colors --bail --config ./webpack.dist.js",
+    "start": "./node_modules/.bin/webpack-dev-server --config ./webpack.dev.js --open --hot",
+    "clean-build": "node configures/clear.build.js",
+    "clean-node_modules": "node configures/clear.node_modules.js"
+  },
+  "Config": {
+    "host": "localhost",
+    "port": 3000
   },
   "keywords": [
     "webpack",
@@ -23,7 +29,14 @@
   "devDependencies": {
     "alphabetjs": "^0.1.3",
     "autoprefixer": "^6.7.7",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.2.0",
+    "babel-plugin-add-module-exports": "^0.1.2",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
     "css-loader": "^0.27.3",
+    "cssnext": "^1.8.4",
+    "es3ify-loader": "^0.1.0",
     "eslint": "^3.16.1",
     "eslint-config-airbnb-base": "^11.1.0",
     "eslint-plugin-import": "^2.2.0",
@@ -34,23 +47,30 @@
     "gulp-connect": "^5.0.0",
     "html-loader": "^0.4.5",
     "html-webpack-plugin": "^2.28.0",
+    "postcss-import": "^9.1.0",
     "postcss-loader": "^1.3.3",
     "precss": "^1.4.0",
+    "rimraf": "^2.6.1",
     "style-loader": "^0.13.2",
     "url-loader": "^0.5.8",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1",
-    "xtpl-loader": "^0.1.0",
-    "text-loader": "0.0.1"
+    "xtpl-loader": "^0.1.0"
   },
   "dependencies": {
     "avalon2": "^2.2.4",
+    "babel-polyfill": "^6.23.0",
+    "console-polyfill": "^0.2.3",
     "cookie_js": "^1.2.2",
+    "es5-shim": "^4.5.9",
     "es6-promise": "^4.1.0",
+    "fetch-detector": "^1.0.1",
     "fetch-ie8": "^1.5.0",
     "json3": "^3.3.2",
-    "lodash": "^4.17.4",
+    "lodash": "3.10.1",
     "lodash-compat": "^3.10.2",
+    "sortablejs": "^1.5.1",
+    "text-loader": "0.0.1",
     "xtemplate": "^4.6.0"
   }
 }

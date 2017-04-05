@@ -7,6 +7,8 @@ const ROOT = path.resolve(__dirname,'../');
 const SRC = path.resolve(ROOT,'src');
 //生成目录
 const BUILD = path.resolve(ROOT,'build');
+//node_modules目录
+const NODEMODULES = path.resolve(ROOT,'node_modules');
 //视图目录
 const VIEWS = path.resolve(SRC,'views');
 //组件目录
@@ -29,5 +31,6 @@ module.exports = {
     COMPONENTS,
     RESOURCES,
     PAGES,
-    MODULES
+    MODULES,
+    NODEMODULES
 }
