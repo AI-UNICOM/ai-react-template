@@ -4,7 +4,7 @@ const routers = require('../router.js').routers;//路由配置
 const host=require('../package.json').Config.host;
 const port=require('../package.json').Config.port;
 const devServerConfig = {
-    contentBase: './build/',
+    // contentBase: './build/',
     host: host,
     port: port, // 默认8080
     inline: true, // 可以监控js变化
