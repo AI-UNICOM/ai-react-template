@@ -8,5 +8,5 @@ module.exports={
         modules:DIR.MODULES,
         domConfigRes:path.resolve(DIR.RESOURCES,'./__config.js')
     },
-    extensions: ['.js','.xtpl','.css', '.scss']
+    extensions: ['.js','.jsx','.xtpl','.css', '.scss']
 }

@@ -2,7 +2,9 @@ var ROUTER = require("../../router").routerUrls;
 var DOM = {
     js:{
         jquery: require('!!file-loader?name=static/js/[name].[ext]!./assets/jquery.min.js'),
-        shim:require('!!file-loader?name=static/js/[name].[ext]!./assets/shim.js')
+        shim:require('!!file-loader?name=static/js/[name].[ext]!./assets/shim.js'),
+        hasShimES5:false,
+        shimES5:require('!!file-loader?name=static/js/[name].[ext]!./assets/shim.es5.js')
     },
     css:{},
     images:{

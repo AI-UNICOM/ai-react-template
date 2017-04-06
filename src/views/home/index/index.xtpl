@@ -1,7 +1,7 @@
 {{extend ("../../../layouts/base")}}
 
 {{#block ("body")}}
-    <div ms-controller="demo" class="demo">
-        <h1>{%content%}</h1>
+    <div id="demo" class="demo">
+        
     </div>
 {{/block}}

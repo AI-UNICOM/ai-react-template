@@ -28,12 +28,12 @@ function doCssByEnv(cssloaders){
 module.exports={
     rules:[
          {
-            test: /\.js$/,
+            test: /\.jsx?$/,
             include:[DIR.SRC],
             loaders: ['babel-loader']
         },
         {
-            test: /\.js$/,
+            test: /\.jsx?$/,
             include:[path.join(DIR.SRC,"./views")],
             enforce: "post",
             loaders: ['es3ify-loader']
