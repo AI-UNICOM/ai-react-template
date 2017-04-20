@@ -25,6 +25,16 @@ const plugins = [
         ROUTER: JSON.stringify(ROUTER)
     })
 ];
+if(!ENV.IS_DEBUG){
+    plugins.push(new webpack.optimize.DedupePlugin());
+    plugins.push(new webpack.optimize.UglifyJsPlugin({
+        compress: { warnings: false, screw_ie8: false },
+        mangle: { screw_ie8: false },
+        output: { screw_ie8: false }
+    }));
+    plugins.push(new webpack.optimize.AggressiveMergingPlugin());
+}
+
 
 DIR.PAGES.forEach(name => {
     plugins.push(new HtmlWebpackPlugin({

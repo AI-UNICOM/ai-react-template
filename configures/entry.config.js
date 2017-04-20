@@ -1,13 +1,15 @@
 const path= require('path');
 const DIR = require('./path.config');
 const entrys={
-    "global":path.resolve(DIR.RESOURCES,`./assets/global`)
-    // "global": [
-    //   'es6-promise',
-    //   'fetch-ie8',
-    //   'es5-shim',
-    //   'es5-shim/es5-sham'
-    // ]
+    "global": [
+      'es5-shim',
+      'es5-shim/es5-sham',
+      'es6-promise',
+      'babel-polyfill',
+      'fetch-detector',
+      'fetch-ie8',
+      path.resolve(DIR.RESOURCES,`./assets/global`)
+    ]
 };
 
 DIR.PAGES.forEach(name=>{

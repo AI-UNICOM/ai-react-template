@@ -25,18 +25,48 @@ function doCssByEnv(cssloaders){
     }
 }
 
+
+
 module.exports={
     rules:[
          {
-            test: /\.jsx?$/,
+            test: /\.js$/,
             include:[DIR.SRC],
             loaders: ['babel-loader']
         },
+        // {
+        //     test: /\.jsx?$/,
+        //     include:[DIR.SRC],
+        //     enforce: "post",
+        //     loaders: ['es3ify-loader']
+        // },
         {
-            test: /\.jsx?$/,
-            include:[path.join(DIR.SRC,"./views")],
-            enforce: "post",
-            loaders: ['es3ify-loader']
+            test: /\.jsx$/,
+            include:[DIR.SRC],
+            loader: 'babel-loader',
+            query: {
+            // https://github.com/babel/babel-loader#options
+            cacheDirectory: ENV.IS_DEBUG,
+
+            // https://babeljs.io/docs/usage/options/
+            babelrc: false,
+            presets: [
+                'react',
+                'es2015-loose',
+                'stage-1',
+            ],
+            plugins: [
+                'transform-runtime',
+                ...ENV.IS_DEBUG ? [] : [
+                'transform-react-remove-prop-types',
+                'transform-react-constant-elements',
+                'transform-react-inline-elements',
+                'transform-es3-modules-literals',
+                'transform-es3-member-expression-literals',
+                'transform-es3-property-literals'
+                ],
+            ],
+            },
         },
         {
             test: /\.html$/,
@@ -50,7 +80,7 @@ module.exports={
         },
         {
             test:/\.css$/,
-            include:[DIR.SRC],
+            // include:[DIR.SRC],
             use:doCssByEnv()
         },
         {

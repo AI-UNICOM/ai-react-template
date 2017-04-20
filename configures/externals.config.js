@@ -30,4 +30,4 @@ module.exports = Object.assign({
         jquery: 'window.$',
         dialog: 'window.dialog'
     }
-}, ENV.IS_PRODUCTION ? {} : { devtool: 'source-map' })
+}, ENV.IS_DEBUG ? { devtool: 'source-map' }:{})

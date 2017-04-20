@@ -12,10 +12,3 @@
         <link type="text/css" rel="stylesheet" href="{{value}}">
     {{/if}}
 {{/each}}
-<!--[if lt IE 10]>
-    <script src="{{DOM.js.shim}}"></script>
-    <script src="{{DOM.js.html5shiv}}"></script>
-<![endif]-->
-<!--[if lt IE 9]>
-    <script src="{{DOM.js.respond}}"></script>
-<![endif]-->
