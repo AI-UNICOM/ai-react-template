@@ -6,13 +6,11 @@
 
 > 支持ES6写法
 
-> 支持avalon2.0
-
 > 支持 Xtemplate 模板引擎
 
 > 支持 axios(使用fetch-ie8进行简单封装)
 
-> 支持 react@0.14
+> 内置 react@0.14,react-router,redux等
 
 # 使用
 

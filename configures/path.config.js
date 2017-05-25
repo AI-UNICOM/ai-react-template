@@ -16,7 +16,7 @@ const COMPONENTS = path.resolve(SRC,'components');
 //资源目录
 const RESOURCES = path.resolve(SRC,'resources');
 //业务模块
-const MODULES=path.resolve(SRC,'modules');
+const MODULES=path.resolve(SRC,'module');
 //模块页面
 const PAGES = glob.sync("!(_)*/!(_)*",{
     cwd:VIEWS
