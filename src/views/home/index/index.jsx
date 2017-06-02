@@ -1,4 +1,4 @@
-import from './index.scss'
+import './index.scss'
 import React from 'react'
 import {render} from 'react-dom'
 import { Router, Route,hashHistory,IndexRedirect } from 'react-router'

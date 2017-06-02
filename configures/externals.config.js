@@ -12,15 +12,16 @@ const devServerConfig = {
     compress: true
 };
 
-let targetUrl=Config.devTargetUrl;
-if(ENV.IS_TEST)targetUrl=Config.testTargetUrl;
-if(ENV.IS_PRODUCTION)targetUrl=Config.distTargetUrl;
+const proxyConfig=Config.proxyConfig;
+let apiUrl=proxyConfig.Apis.dev;
+if(ENV.IS_TEST)apiUrl=proxyConfig.Apis.test;
+if(ENV.IS_PRODUCTION)apiUrl=proxyConfig.Apis.dist;
 
 const proxy = {};//设置代理
 
-Config.proxyHttpNames.forEach(name=>{
+proxyConfig.Urls.forEach(name=>{
     proxy[name]={
-        target: targetUrl,
+        target: apiUrl,
         changeOrigin: true
     }
 })

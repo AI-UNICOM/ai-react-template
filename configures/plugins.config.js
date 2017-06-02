@@ -14,11 +14,11 @@ const plugins = [
         dialog: "dialog"
     }),
     new webpack.optimize.CommonsChunkPlugin({
-        name: 'libs',
+        name: 'static',
         filename: 'static/libs.js',
         minChunks: 4,
     }),
-    new ExtractTextPlugin('static/[name].css'),
+    new ExtractTextPlugin('[name]/style.css'),
     new webpack.DefinePlugin({
         IS_PRODUCTION: ENV.IS_PRODUCTION,
         IS_TEST: ENV.IS_TEST,
@@ -40,7 +40,7 @@ DIR.PAGES.forEach(name => {
     plugins.push(new HtmlWebpackPlugin({
         filename: `${name}.html`,
         template: path.resolve(DIR.VIEWS, `./${name}/xtpl.js`),
-        chunks: ["libs", name],//加载js,
+        chunks: ["static", name],//加载js,
         inject: "body",//默认把js插入到body minify，生成压缩后的HTML代码
         hash: true//生成缓存
     }));
