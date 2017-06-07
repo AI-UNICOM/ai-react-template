@@ -6,7 +6,7 @@ module.exports={
         components:DIR.COMPONENTS,
         resources:DIR.RESOURCES,
         modules:DIR.MODULES,
-        domConfigRes:path.resolve(DIR.RESOURCES,'./__config.js')
+        domConfigRes:path.resolve(DIR.SRC,'./config.js')
     },
     extensions: ['.js','.jsx','.xtpl','.css', '.scss']
 }

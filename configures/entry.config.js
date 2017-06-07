@@ -10,7 +10,7 @@ const entrys={
       'console-polyfill',
       'fetch-detector',
       'fetch-ie8'],
-      path.resolve(DIR.RESOURCES,`./assets/global`)
+      path.resolve(DIR.SRC,`./global`)
     ]
 };
 

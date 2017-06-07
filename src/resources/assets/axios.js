@@ -23,7 +23,13 @@ const toSuccess=(item)=>{
     }
 }
 const getFullUrl=(url)=>{
-    return (Config.publicPath+url).replace(/[^:]\/\//,/[^:]\//);
+    let urls=(Config.publicPath+url).split('http://')
+    let baseUrl="",pathUrl=urls[0]
+    if(urls.length>1){
+        baseUrl="http://";
+        pathUrl=urls[1].replace(/\/\//,'/');
+    }
+    return baseUrl+pathUrl;
 }
 const get=(url)=>{
     return fetch(getFullUrl(url))
