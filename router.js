@@ -1,4 +1,4 @@
-const _ = require('lodash-compat');
+const _ = require('lodash');
 const fs = require('fs');
 const host = require('./package.json').Config.host;
 const port = require('./package.json').Config.port;
